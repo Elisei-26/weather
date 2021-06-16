@@ -55,7 +55,7 @@ class App extends React.Component {
           <p><font color="bluesky" size="10">Weather</font></p>
           <div className="card-body" style={ { display: 'inline-flex' } }>
             <Input 
-              onChange={event =>this.handleInput(event)}
+              onChange={event => this.handleInput(event)}
             />
             <ButtonAddToList 
               onClick={this.handleClick}
