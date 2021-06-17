@@ -4,7 +4,7 @@ import Input from './components/Input';
 import ButtonAddToList from './components/ButtonAddToList';
 import ButtonCheckWeather from './components/ButtonCheckWeather';
 import WeatherStatus from './components/WeatherStatus';
-import RenderList from './components/RenderList'
+import RenderList from './components/RenderList';
 
 class App extends React.Component {
   constructor(props) {
