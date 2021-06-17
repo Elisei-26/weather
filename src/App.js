@@ -3,7 +3,8 @@ import './App.css';
 import Input from './components/Input';
 import ButtonAddToList from './components/ButtonAddToList';
 import ButtonCheckWeather from './components/ButtonCheckWeather';
-import WeatherStatus from './components/WeatherStatusAndRenderList';
+import WeatherStatus from './components/WeatherStatus';
+import RenderList from './components/RenderList'
 
 class App extends React.Component {
   constructor(props) {
@@ -69,6 +70,13 @@ class App extends React.Component {
           <div>
             <WeatherStatus 
               weather={this.state.weather} 
+              list={this.state.list} 
+              jumpTo={this.jumpTo} 
+              handleDelete={this.handleDelete}
+            />
+          </div>
+          <div>
+            <RenderList 
               list={this.state.list} 
               jumpTo={this.jumpTo} 
               handleDelete={this.handleDelete}
