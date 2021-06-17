@@ -1,13 +1,6 @@
 import React from 'react';
 
 class WeatherStatus extends React.Component {
-    renderList() {
-      if(this.props.list.length === 0) {
-        return null;
-      }
-      return <h3>{this.props.list.map((item, index) => <p key={index}><button className="btn btn-primary" onClick={() => this.props.jumpTo(item)}>{item}</button><button className="btn btn-warning m-1" onClick={() => this.props.handleDelete(item)}>x</button></p>)}</h3>
-    }
-  
     render() {
       return (
         <div style={ { display: 'inline-flex' } }>
@@ -39,11 +32,8 @@ class WeatherStatus extends React.Component {
             <h3>
               Wind speed in kph: {this.props.weather.current?.wind_kph }
             </h3>
-            </div>
-            <div style={ { width: 200} }> 
-              {this.renderList()} 
-            </div>
-            <div style={ { width: 400} }>
+          </div>
+          <div style={ { width: 400} }>
             <h3>
               Wind degree: {this.props.weather.current?.wind_degree} 
             </h3>
