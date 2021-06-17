@@ -69,10 +69,7 @@ class App extends React.Component {
           </div>
           <div>
             <WeatherStatus 
-              weather={this.state.weather} 
-              list={this.state.list} 
-              jumpTo={this.jumpTo} 
-              handleDelete={this.handleDelete}
+              weather={this.state.weather}
             />
           </div>
           <div>
