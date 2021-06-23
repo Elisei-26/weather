@@ -1,7 +1,6 @@
 import React from 'react';
 
 function List(props) {
-
   function RenderList(props){
     if(props.list.length === 0) {
       return null;
