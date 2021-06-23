@@ -1,88 +1,67 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Input from './components/Input';
-import ButtonAddToList from './components/ButtonAddToList';
-import ButtonCheckWeather from './components/ButtonCheckWeather';
+import Control from './components/Control';
 import WeatherStatus from './components/WeatherStatus';
-import RenderList from './components/RenderList';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: [],
-      cityName: "",
-      weather: ""
-    }
-  }
+function App() {
+  const [listOfCities, setlistOfCities] = useState([]);
+  const [cityName, setCityName] = useState("");
+  const [weatherInfo, setWeatherInfo] = useState("");
   
-  onSubmit = () => {
-    fetch(`https://api.weatherapi.com/v1/current.json?key=1ac5f1f1e4da4c39832151041211205&q=${this.state.cityName}&aqi=no`)
+  function onCheckWeatherClick() { // this function get the data from the API for the given city
+    fetch(`https://api.weatherapi.com/v1/current.json?key=1ac5f1f1e4da4c39832151041211205&q=${cityName}&aqi=no`)
       .then(response => response.json())
       .then(json => {
-        this.setState({ weather: json});
+        setWeatherInfo(json);
       });
   }
 
-  handleInput = (event) => {
-    this.setState({cityName: event.target.value});
+  function onInputType(event) { // this function initializes the variable cityName from state with the value from the input 
+    setCityName(event.target.value);
+    
   }
 
-  handleClick = () => {
-    const city = this.state.cityName;
+  function onAddToListClick() { // this function add the name of city from input in a list
+    const city = cityName;
     if (city.length === 0) {
       return;
     }
-    let newList = this.state.list;
-    this.setState({
-      list: newList.concat(city)
-    });
+    let newList = listOfCities;
+    setlistOfCities(newList.concat(city));
   }
 
-  jumpTo = (city) => {
-    this.setState({cityName: city});
-    this.onSubmit();
+  function onFavoriteCityClick(city) { // this function display the weather data for the cities from list
+    setCityName(city);
+    onCheckWeatherClick();
   }
 
-  handleDelete = (item) => {
-    const newList = this.state.list.filter(i => i !== item);
-    this.setState({ list: newList });
+  function onDeleteButtonClick(item) { // this function delete the name of a city from the list
+    const newList = listOfCities.filter(i => i !== item);
+    setlistOfCities(newList);
   }
 
-  render() {
-    return (
-      <div>
-        <center>
-          <p><font color="bluesky" size="10">Weather</font></p>
-          <div className="card-body" style={ { display: 'inline-flex' } }>
-            <Input 
-              onChange={event => this.handleInput(event)}
-            />
-            <ButtonAddToList 
-              onClick={this.handleClick}
-            />
-          </div>
-          <div>
-            <ButtonCheckWeather 
-              onClick={this.onSubmit} 
-            />
-          </div>
-          <div>
-            <WeatherStatus 
-              weather={this.state.weather}
-            />
-          </div>
-          <div>
-            <RenderList 
-              list={this.state.list} 
-              jumpTo={this.jumpTo} 
-              handleDelete={this.handleDelete}
-            />
-          </div>
-        </center>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <center>
+        <p><font color="bluesky" size="10">Weather</font></p>
+        <div>
+          <Control
+            onChange={event => onInputType(event)}
+            onAddToListClick={onAddToListClick}
+            onCheckWeatherClick={onCheckWeatherClick}
+          />
+        </div>
+        <div>
+          <WeatherStatus 
+            weatherInfo={weatherInfo}
+            list={listOfCities} 
+            onFavoriteCityClick={onFavoriteCityClick} 
+            onDeleteButtonClick={onDeleteButtonClick}
+          />
+        </div>
+      </center>
+    </div>
+  );
 }
 
 export default App;
