@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Control(props) {
+function StateControl(props) {
   return (
     <div>
       <div className="card-body" style={ { display: 'inline-flex' } }>
@@ -20,4 +20,4 @@ function Control(props) {
   );
 }
 
-export default Control;
+export default StateControl;
