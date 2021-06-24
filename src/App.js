@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import Control from './components/Control';
+import StateControl from './components/Control';
 import WeatherStatus from './components/WeatherStatus';
 
 function App() {
@@ -44,21 +44,25 @@ function App() {
     <div>
       <center>
         <p><font color="bluesky" size="10">Weather</font></p>
-        <div>
-          <Control
-            onChange={event => onInputType(event)}
-            onAddToListClick={onAddToListClick}
-            onCheckWeatherClick={onCheckWeatherClick}
-          />
-        </div>
-        <div>
-          <WeatherStatus 
-            weatherInfo={weatherInfo}
-            list={listOfCities} 
-            onFavoriteCityClick={onFavoriteCityClick} 
-            onDeleteButtonClick={onDeleteButtonClick}
-          />
-        </div>
+        <b>
+          <i>
+            <div>
+              <StateControl
+                onChange={event => onInputType(event)}
+                onAddToListClick={onAddToListClick}
+                onCheckWeatherClick={onCheckWeatherClick}
+              />
+            </div>
+            <div>
+              <WeatherStatus 
+                weatherInfo={weatherInfo}
+                list={listOfCities} 
+                onFavoriteCityClick={onFavoriteCityClick} 
+                onDeleteButtonClick={onDeleteButtonClick}
+              />
+            </div>
+          </i>
+        </b>
       </center>
     </div>
   );
