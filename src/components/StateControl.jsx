@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
 
 function StateControl(props) {
   return (
@@ -11,7 +12,7 @@ function StateControl(props) {
           onChange={event => props.onChange(event)} 
           placeholder="Type the name of city" 
         />
-        <button type="button" className="btn btn-primary m-2" onClick={props.onAddToListClick}>☆</button>
+        <Button variant="contained" color="primary" /*type="button" className="btn btn-primary m-2"*/ onClick={props.onAddToListClick}>☆</Button>
       </div>
       <div>
         <button type="button" className="btn btn-secondary btn-outline-warning" onClick={props.onCheckWeatherClick}>Check weather</button>

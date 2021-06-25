@@ -1,13 +1,14 @@
 import React from 'react';
+import { List } from '@material-ui/core';
 
-function List(props) {
+function StateList(props) {
   function RenderList(props){
     if(props.list.length === 0) {
       return null;
     }
     return (
-      <div>{props.list.map((item, index) => <p key={index}><button className="btn btn-primary" onClick={() => props.onFavoriteCityClick(item)}>{item}</button><button className="btn btn-warning m-1" onClick={() => props.onDeleteButtonClick(item)}>x</button></p>)}
-      </div>
+      <List>{props.list.map((item, index) => <p key={index}><button className="btn btn-primary" onClick={() => props.onFavoriteCityClick(item)}>{item}</button><button className="btn btn-warning m-1" onClick={() => props.onDeleteButtonClick(item)}>x</button></p>)}
+      </List>
     );
   }
 
@@ -18,4 +19,4 @@ function List(props) {
   );
 }
 
-export default List;
+export default StateList;

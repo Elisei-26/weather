@@ -1,3 +1,4 @@
+import { CssBaseline, makeStyles } from '@material-ui/core';
 import React, {useState} from 'react';
 import './App.css';
 import StateControl from './components/StateControl';
@@ -40,29 +41,35 @@ function App() {
     setlistOfCities(newList);
   }
 
+  const useStyles = makeStyles((theme) => ({
+    root: {
+    minHeight: '100vh',
+    backgroundImage: `url(https://images.pexels.com/photos/240526/pexels-photo-240526.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    },
+  }));
+
   return (
     <div>
+      <CssBaseline />
       <center>
         <p><font color="bluesky" size="10">Weather</font></p>
-        <b>
-          <i>
-            <div>
-              <StateControl
-                onChange={event => onInputType(event)}
-                onAddToListClick={onAddToListClick}
-                onCheckWeatherClick={onCheckWeatherClick}
-              />
-            </div>
-            <div>
-              <WeatherStatus 
-                weatherInfo={weatherInfo}
-                list={listOfCities} 
-                onFavoriteCityClick={onFavoriteCityClick} 
-                onDeleteButtonClick={onDeleteButtonClick}
-              />
-            </div>
-          </i>
-        </b>
+        <div>
+          <StateControl
+            onChange={event => onInputType(event)}
+            onAddToListClick={onAddToListClick}
+            onCheckWeatherClick={onCheckWeatherClick}
+          />
+        </div>
+        <div>
+          <WeatherStatus 
+            weatherInfo={weatherInfo}
+            list={listOfCities} 
+            onFavoriteCityClick={onFavoriteCityClick} 
+            onDeleteButtonClick={onDeleteButtonClick}
+          />
+        </div>
       </center>
     </div>
   );
