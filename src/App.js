@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import StateControl from './components/Control';
+import StateControl from './components/StateControl';
 import WeatherStatus from './components/WeatherStatus';
 
 function App() {
