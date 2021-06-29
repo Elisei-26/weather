@@ -1,3 +1,4 @@
+import { Grid } from '@material-ui/core';
 import React, {useState} from 'react';
 import './App.css';
 import StateControl from './components/StateControl';
@@ -44,21 +45,23 @@ function App() {
     <div>
       <center>
         <p><font color="bluesky" size="10">Weather</font></p>
-        <div>
-          <StateControl
-            onChange={event => onInputType(event)}
-            onAddToListClick={onAddToListClick}
-            onCheckWeatherClick={onCheckWeatherClick}
-          />
-        </div>
-        <div>
-          <WeatherStatus 
-            weatherInfo={weatherInfo}
-            list={listOfCities} 
-            onFavoriteCityClick={onFavoriteCityClick} 
-            onDeleteButtonClick={onDeleteButtonClick}
-          />
-        </div>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <StateControl
+              onChange={event => onInputType(event)}
+              onAddToListClick={onAddToListClick}
+              onCheckWeatherClick={onCheckWeatherClick}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <WeatherStatus 
+              weatherInfo={weatherInfo}
+              list={listOfCities} 
+              onFavoriteCityClick={onFavoriteCityClick} 
+              onDeleteButtonClick={onDeleteButtonClick}
+            />
+          </Grid>
+        </Grid>
       </center>
     </div>
   );
