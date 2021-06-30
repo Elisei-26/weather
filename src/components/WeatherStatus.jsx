@@ -39,7 +39,6 @@ function WeatherStatus(props) {
           </center>
         </Paper>
       </Grid>
-<<<<<<< HEAD
       <Grid item xs={6}>
         <Paper elevation={8} style={ { width: 500 } }>
           <center>
@@ -76,9 +75,6 @@ function WeatherStatus(props) {
         </Paper>
       </Grid>
     </Grid>
-=======
-    </div>
->>>>>>> dda599f47987d8b911d63feab6ef9d8aca77e57c
   );
 }
 
