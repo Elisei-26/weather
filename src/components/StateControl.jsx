@@ -4,7 +4,7 @@ import { Paper } from '@material-ui/core';
 
 function StateControl(props) {
   return (
-    <Paper elevation={10} style={ { width: 1300, color: 'blue' } }>
+    <Paper elevation={10} style={ { width: 1300 } }>
       <div className="card-body" style={ { display: 'inline-flex' } }>
         <input 
           type="text" 
