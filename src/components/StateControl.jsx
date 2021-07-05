@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
-import { Paper } from '@material-ui/core';
+import { Button, Paper } from '@material-ui/core';
 
 function StateControl(props) {
   return (
