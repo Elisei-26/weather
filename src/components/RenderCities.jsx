@@ -2,16 +2,24 @@ import React from 'react';
 import { Paper } from '@material-ui/core'
 
 function RenderCities(props) {
+  const x = 1;
+  function Style() {
+    
+    if (x % 2 === 0) {
+      return 9;
+    } else {
+      return 3;
+    }
+  }
   function RenderList(props){
-    if(props.listOfFavCities.length === 0) {
+    if (props.listOfFavCities.length === 0) {
       return null;
     }
     return (
       <Paper elevation={8}>
         <h3>Favorite cities</h3>
-        <h3>----------------</h3>
-        <div>{props.listOfFavCities.map((item, index) => <p key={index}><button className="btn btn-warning m-1" onClick={() => props.deleteCityFromListOfFavCities(item)}>x</button>{item}</p>)}
-        </div>
+        <h3>{props.listOfFavCities.map((item, index) => <Paper key={index} elevation={8}><button className="btn btn-light btn-outline-dark m-1" onClick={() => props.deleteCityFromListOfFavCities(item)}>x</button>{item}</Paper>)}
+        </h3>
       </Paper>
     );
   }
