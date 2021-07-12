@@ -2,16 +2,7 @@ import React from 'react';
 import { Paper } from '@material-ui/core'
 
 function RenderCities(props) {
-  const x = 1;
-  function Style() {
-    
-    if (x % 2 === 0) {
-      return 9;
-    } else {
-      return 3;
-    }
-  }
-  function RenderList(props){
+  function RenderList(props) {
     if (props.listOfFavCities.length === 0) {
       return null;
     }
