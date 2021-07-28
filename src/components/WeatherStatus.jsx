@@ -22,10 +22,10 @@ function WeatherStatus(props) {
             Temperature in °F: {props.weatherInfo.current?.temp_f} 
           </h4>
           <h4 className="text m-3">
-            Condition: {props.weatherInfo.current?.condition.text}
+            Condition: {props.weatherInfo.current?.condition?.text}
           </h4>
           <h4 className="text m-3">
-            <img src={props.weatherInfo.current?.condition.icon} alt="img" />
+            <img src={props.weatherInfo.current?.condition?.icon} alt="img" />
           </h4>
           <h4 className="text m-3">
             Wind speed in kph: {props.weatherInfo.current?.wind_kph}

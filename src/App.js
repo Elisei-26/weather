@@ -1,46 +1,40 @@
-import { Grid } from '@material-ui/core';
 import React, {useState} from 'react';
 import './App.css';
 import StateControl from './components/StateControl';
 import WeatherStatus from './components/WeatherStatus';
 import RenderWeatherFavCities from './components/RenderWeatherFavCities';
 import RenderCities from './components/RenderCities';
+import { Grid } from '@material-ui/core';
 
 function App() {
   const [listOfFavCities, setListOfFavCities] = useState([]);
   const [listWeatherOfFavCities, setlistWeatherOfFavCities] = useState([]);
-  const [cityName, setCityName] = useState("");
+  const [cityName, setCityName] = useState('');
   const [weatherInfo, setWeatherInfo] = useState([]);
-  const [favCitiesWeatherInfo, setFavCitiesWeatherInfo] = useState([]);
   
   function onCheckWeatherClick() { // this function get the data from the API for the city tiped in input
     fetch(`https://api.weatherapi.com/v1/current.json?key=1ac5f1f1e4da4c39832151041211205&q=${cityName}&aqi=no`)
       .then(response => response.json())
-      .then(json => {
-        setWeatherInfo(json);
+      .then(result => {
+        setWeatherInfo(result);
       });
   }
-
-  function getWeatherInfoForFavCities() { // this function get the data from the API for cities saved in favorite list of cities
-    fetch(`https://api.weatherapi.com/v1/current.json?key=1ac5f1f1e4da4c39832151041211205&q=${cityName}&aqi=no`)
-      .then(response => response.json())
-      .then(json => {
-        setFavCitiesWeatherInfo(json);
-      });
-  }
-
+  
   function onChange(event) { // this function initializes the variable cityName from state with the value from the input
     setCityName(event.target.value);
-    getWeatherInfoForFavCities();
   }
 
   function onAddToListClick() { // this function add the name of city from input in a lists
     if (cityName.length === 0) {
       return;
+    } else {
+      fetch(`https://api.weatherapi.com/v1/current.json?key=1e7568329fec4884bdc131450211407&q=${cityName}&aqi=no`)
+        .then(response => response.json())
+        .then(result => {
+          setlistWeatherOfFavCities(listWeatherOfFavCities.concat(result));
+          setListOfFavCities(listOfFavCities.concat(cityName));
+        });
     }
-    getWeatherInfoForFavCities();
-    setlistWeatherOfFavCities(listWeatherOfFavCities.concat(favCitiesWeatherInfo));
-    setListOfFavCities(listOfFavCities.concat(cityName));
   }
 
   function deleteItemFromListWeatherOfFavCities(item) { // this function delete the weather info of a city from the list listWeatherOfFavCities

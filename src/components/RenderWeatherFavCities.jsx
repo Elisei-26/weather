@@ -39,7 +39,7 @@ function RenderWeatherFavCities(props) {
                   <TableCell align="center">{item.current?.last_updated}</TableCell>
                   <TableCell align="center">{item.current?.temp_c} </TableCell>
                   <TableCell align="center">{item.current?.temp_f}</TableCell>
-                  <TableCell align="center">{item.current?.condition.text}<img src={item.current?.condition.icon} alt="img" /></TableCell>
+                  <TableCell align="center">{item.current?.condition?.text}<img src={item.current?.condition?.icon} alt="img" /></TableCell>
                   <TableCell align="center">{item.current?.wind_kph}</TableCell>
                   <TableCell align="center">{item.current?.wind_mph}</TableCell>
                   <TableCell align="center">{item.current?.wind_degree}</TableCell>
