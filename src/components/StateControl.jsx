@@ -8,7 +8,7 @@ function StateControl(props) {
         <input 
           type="text" 
           className="form-control" 
-          style={ { width: 400} } 
+          style={ { width: 400 } } 
           onChange={event => props.onChange(event)} 
           placeholder="Type the name of city" 
         />

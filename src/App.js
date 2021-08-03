@@ -13,7 +13,7 @@ function App() {
   const [weatherInfo, setWeatherInfo] = useState([]);
   
   function onCheckWeatherClick() { // this function get the data from the API for the city tiped in input
-    fetch(`https://api.weatherapi.com/v1/current.json?key=1ac5f1f1e4da4c39832151041211205&q=${cityName}&aqi=no`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=1e7568329fec4884bdc131450211407&q=${cityName}&aqi=no`)
       .then(response => response.json())
       .then(result => {
         setWeatherInfo(result);
@@ -24,7 +24,7 @@ function App() {
     setCityName(event.target.value);
   }
 
-  function onAddToListClick() { // this function add the name of city from input in a lists
+  function onAddToListClick() { // this function add the name of city from input in lists
     if (cityName.length === 0) {
       return;
     } else {
