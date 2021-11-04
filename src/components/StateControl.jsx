@@ -27,9 +27,7 @@ function StateControl(props) {
           <div>
             <Button className="button m-2" variant="contained" color="primary" style={ { width: 100, height: 40 } } onClick={props.getRoadData}>Check Distance</Button>
           </div>
-          <p> Distance between cities: {props.road?.destination_addresses} </p>
-          <p> Distance between cities: {props.road?.rows[0]} </p>
-          
+          <p> Distance between cities: {props.road.rows === undefined ? 0 : props.road.rows[0].elements[0].distance.text} </p>
         </div>
 
         <div style={ { width: 500 } }>

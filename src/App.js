@@ -29,22 +29,13 @@ function App() {
   function getDestinations(event) {
     setDestinations(event.target.value);
   }
-
-  function notNull() {
-    setRoad(JSON.parse("{\"destination_addresses\" : [ \"Sebeș, Romania\" ],\"origin_addresses\" : [ \"Sibiu, Romania\" ],\"rows\" : [{\"elements\" : [{\"distance\" : {\"text\" : \"66.9 km\",\"value\" : 66904},\"duration\" : {\"text\" : \"43 mins\",\"value\" : 2601},\"status\" : \"OK\"}]}],\"status\" : \"OK\""))
-  }
-
+  
   function getRoadData() {
-    notNull();
-    if(this.item === undefined) {return}
     fetch(`https://sheltered-beyond-76433.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origins}&destinations=${destinations}&key=AIzaSyBO2_J0jS-br_C2MzejPtIkZliPa5OrECA`)
       .then(response => response.json())
       .then(result => {
         setRoad(result);
-        //console.log(JSON.parse(result).rows[0].elements[0].distance.text);
       });
-      console.log(road);
-      notNull();
   }
   
   function getTemperature(event) { // this function initializes the variable "temperature" from state with the value from the "temperature" input
