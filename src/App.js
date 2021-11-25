@@ -31,7 +31,7 @@ function App() {
   }
   
   function getRoadData() {
-    fetch(`https://sheltered-beyond-76433.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origins}&destinations=${destinations}&key=AIzaSyBO2_J0jS-br_C2MzejPtIkZliPa5OrECA`)
+    fetch(`https://sheltered-beyond-76433.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origins}&destinations=${destinations}&key=AIzaSyDi8q2eh3weWcEhLd-tjrNttVZ3hBkcNFI`)
       .then(response => response.json())
       .then(result => {
         setRoad(result);
